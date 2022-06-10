@@ -1,5 +1,5 @@
-import CategoryLabel from "../../components/CategoryLabel"
-import Layout from "../../components/Layout"
+import CategoryLabel from "@/components/CategoryLabel"
+import Layout from "@/components/Layout"
 import Link from "next/link"
 import fs from "node:fs"
 import { marked } from "marked"
