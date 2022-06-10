@@ -1,24 +1,19 @@
-const fs = require("fs")
-const path = require("path")
+const fs = require("node:fs")
 const matter = require("gray-matter")
+const path = require("node:path")
 
 function postData() {
   const files = fs.readdirSync(path.join("posts"))
 
   const posts = files.map((filename) => {
     const slug = filename.replace(".md", "")
-
     const markdownWithMeta = fs.readFileSync(
       path.join("posts", filename),
       "utf-8"
     )
-
     const { data: frontmatter } = matter(markdownWithMeta)
 
-    return {
-      slug,
-      frontmatter,
-    }
+    return { slug, frontmatter }
   })
 
   return `export const posts = ${JSON.stringify(posts)}`
